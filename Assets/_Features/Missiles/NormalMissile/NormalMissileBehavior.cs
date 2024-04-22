@@ -1,3 +1,6 @@
+using System;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
@@ -12,6 +15,9 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
         private Vector2 direction;
         private Rigidbody2D rb;
 
+        [SerializeField] private ParticleSystem explosionPrefab;
+        [SerializeField] private float selfDestructTime = 5f;
+
         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         #region Unity General Functions
@@ -23,11 +29,16 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
             // Gets the ScoreCounter component from the HUD Holder game object.
         }
 
+        private void Update()
+        {
+            CalculateMissileDirectionAndSpeed();
+            Invoke("SelfDestruct", selfDestructTime);
+        }
+
         protected virtual void FixedUpdate()
         {
             if (target)
             {
-                CalculateMissileDirectionAndSpeed();
                 RotateMissile(normalMissileSpeed, normalMissileRotationSpeed);
             }
         }
@@ -49,12 +60,22 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
                 if (direction.magnitude > 5)
                     normalMissileSpeed = direction.magnitude * NormalMissileSpeedMultiplier;
                 else
-                    normalMissileSpeed = 12f;
+                    normalMissileSpeed = 10f;
 
                 direction.Normalize();
             }
+            else if (target == null)
+            {
+                SelfDestruct();
+                StartExplotion();
+            }
         }
 
+        private void SelfDestruct()
+        {
+            Destroy(gameObject);
+        }
+        
         // Missile rotation formula.
         protected void RotateMissile(float missileSpeed, float missileRotationSpeed)
         {
@@ -65,6 +86,12 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
             rb.velocity = transform.up * missileSpeed;
         }
 
+        private void StartExplotion()
+        {
+            ParticleSystem explosionParticles = Instantiate(explosionPrefab, transform.position, quaternion.identity);
+            explosionParticles.Play();
+        }
+        
         private void OnCollisionEnter2D(Collision2D collision)
         {
             switch (collision.gameObject.tag)
@@ -73,11 +100,17 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
                 case "Player":
                     Debug.Log("Player was killed by " + gameObject.name);
                     Destroy(collision.gameObject);
+                    StartExplotion();
                     Destroy(gameObject);
                     break;
                 // If the missile colliders with another missile, destroy both missiles.
                 case "Missile":
                     Destroy(collision.gameObject);
+                    StartExplotion();
+                    Destroy(gameObject);
+                    break;
+                case "Ground":
+                    StartExplotion();
                     Destroy(gameObject);
                     break;
             }
