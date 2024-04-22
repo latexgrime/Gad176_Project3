@@ -5,8 +5,8 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.MissileV2.Behavior
 {
     public class MissileV2Behavior : NormalMissileBehavior
     {
-        private readonly float fastMissileSpeed = 8f;
-        private readonly float fastMissileRotationSpeed = 150;
+        private readonly float fastMissileSpeed = 4.5f;
+        private readonly float fastMissileRotationSpeed = 100f;
 
         private float selfDestructTime = 5f;
         

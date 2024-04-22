@@ -10,7 +10,7 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
         protected Transform target;
         private float normalMissileSpeed;
         private const float NormalMissileSpeedMultiplier = 0.8f;
-        private readonly float normalMissileRotationSpeed = 150;
+        private readonly float normalMissileRotationSpeed = 200;
 
         protected Vector2 direction;
         protected Rigidbody2D rb;
