@@ -10,13 +10,12 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
         protected Transform target;
         private float normalMissileSpeed;
         private const float NormalMissileSpeedMultiplier = 0.8f;
-        private readonly float normalMissileRotationSpeed = 250f;
+        private readonly float normalMissileRotationSpeed = 150;
 
         protected Vector2 direction;
         protected Rigidbody2D rb;
 
         [SerializeField] private ParticleSystem explosionPrefab;
-        [SerializeField] private float selfDestructTime = 5f;
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -29,10 +28,9 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
             // Gets the ScoreCounter component from the HUD Holder game object.
         }
 
-        protected void Update()
+        protected virtual void Update()
         {
             CalculateMissileDirectionAndSpeed();
-            Invoke("SelfDestruct", selfDestructTime);
         }
 
         protected virtual void FixedUpdate()
@@ -71,7 +69,7 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
             }
         }
 
-        private void SelfDestruct()
+        protected void SelfDestruct()
         {
             Destroy(gameObject);
         }
