@@ -7,13 +7,13 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
 {
     public class NormalMissileBehavior : MonoBehaviour
     {
-        private Transform target;
+        protected Transform target;
         private float normalMissileSpeed;
         private const float NormalMissileSpeedMultiplier = 0.8f;
         private readonly float normalMissileRotationSpeed = 250f;
 
-        private Vector2 direction;
-        private Rigidbody2D rb;
+        protected Vector2 direction;
+        protected Rigidbody2D rb;
 
         [SerializeField] private ParticleSystem explosionPrefab;
         [SerializeField] private float selfDestructTime = 5f;
@@ -29,7 +29,7 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
             // Gets the ScoreCounter component from the HUD Holder game object.
         }
 
-        private void Update()
+        protected void Update()
         {
             CalculateMissileDirectionAndSpeed();
             Invoke("SelfDestruct", selfDestructTime);
@@ -50,7 +50,7 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.NormalMissile.Behavior
         #region Script Specific Functions
 
         // Direction in which missile should be facing.
-        protected void CalculateMissileDirectionAndSpeed()
+        protected virtual void CalculateMissileDirectionAndSpeed()
         {
             if (target)
             {
