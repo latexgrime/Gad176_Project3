@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SAE.GAD176.Project3.LeonardoEstigarribia.EventSystem;
 using UnityEngine;
 
 namespace SAE.GAD176.Project3.LeonardoEstigarribia.PlayerMovement
@@ -17,6 +18,7 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.PlayerMovement
         [SerializeField] private float groundCheckRadius = .2f;
         [SerializeField] private LayerMask groundLayer;
         
+        #region Unity General Scripts
         void Start()
         {
             rb = gameObject.GetComponent<Rigidbody2D>();
@@ -45,6 +47,9 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.PlayerMovement
             rb.velocity = new Vector2(horizontalValue * playerSpeed, rb.velocity.y);
         }
 
+        #endregion
+        
+        #region Script Specific Scripts
         private bool isGrounded()
         {
             return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -60,6 +65,27 @@ namespace SAE.GAD176.Project3.LeonardoEstigarribia.PlayerMovement
                 transform.localScale = localScale;
             }
         }
+
+        private void MissileDestroyerPowerUp(Collider2D[] missiles)
+        {
+            for (int i = 0; i < missiles.Length; i++)
+            {
+                Debug.Log("Destroying missiles.");
+                Destroy(missiles[i].gameObject);
+            }
+        }
+
+        private void OnEnable()
+        {
+            GameEvents.OnPowerUpActivationEvent += MissileDestroyerPowerUp;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.OnPowerUpActivationEvent -= MissileDestroyerPowerUp;
+        }
+
+        #endregion
     }
 }
 
