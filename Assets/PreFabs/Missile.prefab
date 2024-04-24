@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 574399374824156170}
   - component: {fileID: 574399374824156165}
   - component: {fileID: 574399374824156166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Missile
   m_TagString: Missile
   m_Icon: {fileID: 0}
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 6211666255826351195, guid: 4a0496ea27f3ca64fb3e30c91087b205, type: 3}
-  selfDestructTime: 5
 --- !u!50 &574399374824156165
 Rigidbody2D:
   serializedVersion: 4
