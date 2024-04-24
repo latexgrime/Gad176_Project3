@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5293761051296895631, guid: ef20b52accf67b944b5f95c2d5a47bfd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5293761051296895631, guid: ef20b52accf67b944b5f95c2d5a47bfd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -375,27 +375,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef20b52accf67b944b5f95c2d5a47bfd, type: 3}
---- !u!1 &2141383169 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 574399374824156169, guid: fed3c0358b09e1f44a2f44748592fc04, type: 3}
-  m_PrefabInstance: {fileID: 574399376007164124}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2141383170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141383169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2fd2a960ef3da40a24cb01108eae65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionRadius: 5
-  missileLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &574399376007164124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -405,7 +384,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 574399374824156164, guid: fed3c0358b09e1f44a2f44748592fc04, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574399374824156164, guid: fed3c0358b09e1f44a2f44748592fc04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -515,6 +494,10 @@ PrefabInstance:
     - target: {fileID: 1809787187987473843, guid: eaf5a9efa0bb3954a8683f48b46f5bf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174795002444579964, guid: eaf5a9efa0bb3954a8683f48b46f5bf8, type: 3}
+      propertyPath: explosionRadius
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 236295724953026851, guid: eaf5a9efa0bb3954a8683f48b46f5bf8, type: 3}
