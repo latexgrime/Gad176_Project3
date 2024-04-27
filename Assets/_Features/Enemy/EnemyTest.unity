@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &94190554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1809787187987473800, guid: eaf5a9efa0bb3954a8683f48b46f5bf8, type: 3}
+  m_PrefabInstance: {fileID: 794542866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &94190561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94190554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d882bfd552ad7640b6be3c903756a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 1206744855}
+  bulletSpeed: 20
+  bulletPrefab: {fileID: 1550130572141601619, guid: b6897d0e4ab9d31449cdd90b60f7d13a, type: 3}
 --- !u!1 &332831637
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,3 +495,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf5a9efa0bb3954a8683f48b46f5bf8, type: 3}
+--- !u!4 &1206744855 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 282517643021653582, guid: eaf5a9efa0bb3954a8683f48b46f5bf8, type: 3}
+  m_PrefabInstance: {fileID: 794542866}
+  m_PrefabAsset: {fileID: 0}
