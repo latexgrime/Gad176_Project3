@@ -184,7 +184,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &247228781
 SpriteRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 0 
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
