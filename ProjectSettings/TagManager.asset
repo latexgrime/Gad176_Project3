@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Enemy
   - Boss
+  - ScoreBoard
   layers:
   - Default
   - TransparentFX
