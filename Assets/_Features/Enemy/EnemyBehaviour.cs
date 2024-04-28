@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -9,15 +7,15 @@ public class EnemyBehaviour : MonoBehaviour
     public float detectionRange = 10f;
     public float missileCooldown = 2f;
 
-    private Transform player;
-    private float nextFireTime;
+    protected Transform player;
+    protected float nextFireTime;
 
-    void Start()
+    protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (player == null)
             return;
@@ -26,17 +24,34 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 direction = player.position - transform.position;
         if (direction.magnitude <= detectionRange)
         {
-            // Move towards a random position near the player
-            Vector3 randomPosition = player.position + Random.insideUnitSphere * 2;
-            randomPosition.y = Random.Range(-1, 4.75f); // Maintain same height
-            transform.position = Vector3.MoveTowards(transform.position, randomPosition, moveSpeed * Time.deltaTime);
+            // Move towards the player
+            MoveAbovePlayer();
 
             // Instantiate missile if cooldown is over
-            if (Time.time >= nextFireTime)
-            {
-                Instantiate(missilePrefab, transform.position, Quaternion.identity);
-                nextFireTime = Time.time + missileCooldown;
-            }
+            FireMissiles();
         }
     }
+
+    protected virtual void MoveAbovePlayer()
+    {
+        // Look for player
+        Vector3 direction = player.position - transform.position;
+        if (direction.magnitude <= detectionRange)
+        {
+            Vector3 randomPosition = player.position + Random.insideUnitSphere * 2;
+            randomPosition.y = Random.Range(-1, 4.75f); // Maintain same height area blah blah blah
+            transform.position = Vector3.MoveTowards(transform.position, randomPosition, moveSpeed * Time.deltaTime);
+        }
+    }
+
+    protected virtual void FireMissiles()
+    {
+        if (Time.time >= nextFireTime)
+        {
+            Instantiate(missilePrefab, transform.position, Quaternion.identity);
+            nextFireTime = Time.time + missileCooldown;
+        }
+    }
+
+    // Other methods...
 }

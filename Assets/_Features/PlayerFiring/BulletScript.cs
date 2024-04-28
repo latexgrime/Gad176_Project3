@@ -15,19 +15,19 @@ namespace SAE.GAD176.Project3.KalyambaMhango.Shoot.Script
         // Update is called once per frame
         void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.collider.tag == "Enemy")
+            if (collision.collider.CompareTag("Enemy"))
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
 
-            if (collision.collider.tag == "Missile")
+            if (collision.collider.CompareTag("Missile"))
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
 
-            if (collision.collider.tag == "MissileV2")
+            if (collision.collider.CompareTag("MissileV2"))
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
