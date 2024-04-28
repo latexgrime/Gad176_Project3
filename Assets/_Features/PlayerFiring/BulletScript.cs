@@ -6,6 +6,7 @@ namespace SAE.GAD176.Project3.KalyambaMhango.Shoot.Script
 {
     public class BulletScript : MonoBehaviour
     {
+        public GameObject boss;
         // Start is called before the first frame update
         void Awake()
         {
@@ -26,13 +27,15 @@ namespace SAE.GAD176.Project3.KalyambaMhango.Shoot.Script
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
-
-            if (collision.collider.CompareTag("MissileV2"))
+            if (collision.collider.CompareTag("Boss"))
             {
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
+                GameObject hitBoss = collision.gameObject;
+                BossStatManager bossHealth = hitBoss.GetComponent<BossStatManager>();
+                if (hitBoss != null)
+                {
+                    bossHealth.LoseHealth();
+                }
             }
         }
     }
 }
-

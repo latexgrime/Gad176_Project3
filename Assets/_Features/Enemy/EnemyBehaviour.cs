@@ -39,7 +39,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (direction.magnitude <= detectionRange)
         {
             Vector3 randomPosition = player.position + Random.insideUnitSphere * 2;
-            randomPosition.y = Random.Range(-1, 4.75f); // Maintain same height area blah blah blah
+            randomPosition.y = Random.Range(3, 4.75f); // Maintain same height area blah blah blah
             transform.position = Vector3.MoveTowards(transform.position, randomPosition, moveSpeed * Time.deltaTime);
         }
     }
@@ -52,6 +52,4 @@ public class EnemyBehaviour : MonoBehaviour
             nextFireTime = Time.time + missileCooldown;
         }
     }
-
-    // Other methods...
 }
