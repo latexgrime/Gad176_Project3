@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using System.Collections;
 
 namespace SAE.GAD176.Project3.KalyambaMhango.Shoot.Script
 {
@@ -29,8 +30,17 @@ namespace SAE.GAD176.Project3.KalyambaMhango.Shoot.Script
 
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            StartCoroutine(Reload());
         }
 
+        IEnumerator Reload()
+        {
+            // Wait for 0.5 seconds (or any desired reload time)
+            yield return new WaitForSeconds(0.5f);
+
+            // Set the gun as loaded
+            isLoaded = true;
+        }
 
     }
 }
