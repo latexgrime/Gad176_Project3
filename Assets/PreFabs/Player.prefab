@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 1809787187987473807}
   - component: {fileID: 1809787187987473806}
   - component: {fileID: 3174795002444579964}
+  - component: {fileID: 6440156881400824612}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -276,6 +277,21 @@ MonoBehaviour:
   missileLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &6440156881400824612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809787187987473800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d882bfd552ad7640b6be3c903756a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 282517643021653582}
+  bulletSpeed: 50
+  bulletPrefab: {fileID: 1550130572141601619, guid: b6897d0e4ab9d31449cdd90b60f7d13a, type: 3}
 --- !u!1 &1809787188414739823
 GameObject:
   m_ObjectHideFlags: 0
