@@ -9,7 +9,7 @@ public class BossStatManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        bossHealth = 100;
+        bossHealth = 400;
     }
 
     // Update is called once per frame

@@ -35,6 +35,7 @@ namespace SAE.GAD176.Project3.KalyambaMhango.Shoot.Script
                 {
                     bossHealth.LoseHealth();
                 }
+                Destroy(gameObject);
             }
         }
     }
