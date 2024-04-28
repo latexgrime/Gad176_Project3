@@ -13,13 +13,14 @@ namespace TariqAliLafta
         // Update is called once per frame
         void Update()
         {
+        //stops time when pressing E to activate the inventory.
             if (Input.GetKeyDown(KeyCode.E) && menuactivated) 
             {
                 Time.timeScale = 1;
                 inventorymenu.SetActive(false);
                 menuactivated = false;
             }
-
+//resumes time when repressing the E button to continue the gameplay.
             else if (Input.GetKeyDown(KeyCode.E) && !menuactivated)
             {
                 Time.timeScale = 0;
