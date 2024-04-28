@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TariqAliLafta
+namespace SAE.GAD176.Project3.TariqAliLafta.Inventory.Manager
 {
     public class InventoryManager : MonoBehaviour
     {
