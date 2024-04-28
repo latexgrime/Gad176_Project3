@@ -31,7 +31,7 @@ namespace TariqAliLafta
 
         public void AddItem(string ItemName, int quantity, Sprite itemsprite) 
         {
-            Debug.Log ("itemName" +  ItemName + "quantity =" + quantity + "itemSprite" + itemsprite);
+             Debug.Log ("itemName" +  ItemName + "quantity =" + quantity + "itemSprite" + itemsprite);
         }
     }
 }
