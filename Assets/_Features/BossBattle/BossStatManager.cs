@@ -1,29 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class BossStatManager : MonoBehaviour
+namespace SAE.GAD176.Project3.KalyambaMhango.Boss.Stat.Manager
 {
-    public int bossHealth;
-    public GameObject explosion;
-    // Start is called before the first frame update
-    void Awake()
+    public class BossStatManager : MonoBehaviour
     {
-        bossHealth = 400;
-    }
+        public int bossHealth;
+        public GameObject explosion;
+        public TextMeshProUGUI bossHealthText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (bossHealth <= 0)
+        void Awake()
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            bossHealth = 400;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            bossHealthText.text = ("Health " + bossHealth);
+            if (bossHealth <= 0)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+        }
+
+        public void LoseHealth()
+        {
+            bossHealth -= 10;
         }
     }
-
-    public void LoseHealth()
-    {
-        bossHealth -= 10;
-    }
 }
+
+

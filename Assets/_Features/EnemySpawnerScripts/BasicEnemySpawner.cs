@@ -2,33 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemySpawner : MonoBehaviour
+namespace SAE.GAD176.Project3.KalyambaMhango.Basic.Enemy.Spawner
 {
-    public GameObject enemyPrefab;
-    public Vector2 spawnAreaSize;
-    public float spawnInterval = 7f;
-    public int maxSpawnCount = 20; // Maximum number of enemies to spawn
-
-    private int spawnCount = 0; // Counter for the number of enemies spawned
-
-    void Start()
+    public class BasicEnemySpawner : MonoBehaviour
     {
-        StartCoroutine(SpawnEnemy());
-    }
+        public GameObject enemyPrefab;
+        public Vector2 spawnAreaSize;
+        public float spawnInterval = 7f;
+        public int maxSpawnCount = 20;
+        private int spawnCount = 0;
+        public GameObject bossPrefab;
 
-    IEnumerator SpawnEnemy()
-    {
-        while (spawnCount < maxSpawnCount)
+        void Start()
         {
-            yield return new WaitForSeconds(spawnInterval);
+            StartCoroutine(SpawnEnemy());
+        }
 
-            Vector3 spawnPosition = new(
-                Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f),
-                Random.Range(-spawnAreaSize.y / 2f, spawnAreaSize.y / 2f),
-                0f);
+        IEnumerator SpawnEnemy()
+        {
+            while (spawnCount < maxSpawnCount)
+            {
+                yield return new WaitForSeconds(spawnInterval);
 
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-            spawnCount++;
+                Vector3 spawnPosition = new(
+                    Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f),
+                    Random.Range(-spawnAreaSize.y / 2f, spawnAreaSize.y / 2f),
+                    0f);
+
+
+                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                spawnCount++;
+            }
         }
     }
 }
