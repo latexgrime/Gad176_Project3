@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681fd44c9c3462f4bbc7e79d5efb9857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 2561679905645399277, guid: d0458f5601dbc304191b455222a5d72a, type: 3}
+  scoreboard: {fileID: 7837179320697265875, guid: f12ea9ef8dccd6043b11181bf0af79fa, type: 3}
 --- !u!58 &-932752426947192368
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ TagManager:
   - Missile
   - Bullet
   - Enemy
+  - Boss
+  - ScoreBoard
   layers:
   - Default
   - TransparentFX

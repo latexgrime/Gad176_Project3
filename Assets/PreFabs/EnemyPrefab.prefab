@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3064172153349256276}
   m_Layer: 0
   m_Name: EnemyPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 574399374824156169, guid: fed3c0358b09e1f44a2f44748592fc04, type: 3}
-  moveSpeed: 3
+  moveSpeed: 6
   detectionRange: 10
-  missileCooldown: 5
+  missileCooldown: 1.5
 --- !u!50 &2417350264497190529
 Rigidbody2D:
   serializedVersion: 4
@@ -153,4 +153,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b133ccb085878c64ea36382e35cf3a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  enemyHealth: 0
